@@ -13,10 +13,7 @@ export function AudioPlayer() {
 
   useEffect(() => {
     if (!audioRef.current) {
-      const src = storyData.settings.musicFile.startsWith('/') 
-        ? `/regalo${storyData.settings.musicFile}` 
-        : storyData.settings.musicFile;
-      audioRef.current = new Audio(src);
+      audioRef.current = new Audio(storyData.settings.musicFile);
       audioRef.current.loop = true;
       audioRef.current.volume = 0.5;
     }

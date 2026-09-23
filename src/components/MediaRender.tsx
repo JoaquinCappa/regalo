@@ -19,10 +19,12 @@ export function MediaRender({
   muted = true
 }: MediaRenderProps) {
   
+  const finalSrc = item.src.startsWith('/') ? `/regalo${item.src}` : item.src;
+
   if (item.type === 'video' || item.src.toLowerCase().endsWith('.mp4')) {
     return (
       <video
-        src={item.src}
+        src={finalSrc}
         className={className}
         autoPlay={autoPlay}
         loop={autoPlay}
@@ -36,7 +38,7 @@ export function MediaRender({
 
   return (
     <img
-      src={item.src}
+      src={finalSrc}
       alt={item.alt || ""}
       className={className}
       loading={loading}
